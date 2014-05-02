@@ -2,10 +2,10 @@ emq.globalize();
 
 setResolver(Ember.DefaultResolver.extend({
   testSubjects: {
-    'component:can-do':    decl.auth.CanDoComponent,
-    'component:cannot-do': decl.auth.CannotDoComponent,
-    'mixin:authorized-route': decl.auth.AuthorizedRouteMixin,
-    'declarative-authorization:eval': decl.auth.DeclarativeAuthorization
+    'component:can-do':    Ember.DeclarativeAuthorization.CanDoComponent,
+    'component:cannot-do': Ember.DeclarativeAuthorization.CannotDoComponent,
+    'mixin:authorized-route': Ember.DeclarativeAuthorization.AuthorizedRouteMixin,
+    'declarative-authorization:eval': Ember.DeclarativeAuthorization.DeclarativeAuthorization
   },
   resolve: function(fullName) {
     return this.testSubjects[fullName] || this._super.apply(this, arguments);

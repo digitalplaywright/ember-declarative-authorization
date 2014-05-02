@@ -5,7 +5,7 @@ module.exports = function(broccoli) {
   var tree = broccoli.makeTree('lib');
   var templates = templateFilter(tree, {module: true});
   var modules = moduleFilter(templates, {
-    global: 'decl.auth',
+    global: 'Ember.DeclarativeAuthorization',
     packageName: 'ember-declarative-authorization',
     main: 'main',
     shim: {

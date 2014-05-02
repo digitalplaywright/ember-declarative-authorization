@@ -3,7 +3,7 @@ ic-modal
 
 [![Build Status](https://travis-ci.org/instructure/ic-modal.png?branch=master)](https://travis-ci.org/instructure/ic-modal)
 
-[WAI-ARIA][wai-aria] declarative authorization component for [Ember.js][ember].
+declarative authorization component for [Ember.js][ember].
 
 Installation
 ------------
@@ -115,7 +115,7 @@ The object may be the entity performing the activity, or the entity on which the
 The target is the object that the verb is enacted on. e.g. Geraldine(actor) posted a photo(object) to her album(target).
 
 
-One Rule Activity Verbs with Multiple Associated Rules
+Rule Activity Verbs with Multiple Associated Rules
 ------------
 
 An activity verb can be used for multiple rules by putting all rules for that verb into

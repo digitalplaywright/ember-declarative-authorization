@@ -166,7 +166,7 @@ To selectively hide content in a template invoke the #cannot-do component, e.g:
 ```handlebars
 {{#cannot-do activity="edit" actor=user object=post }}
 MARK
-{{/can-do}}
+{{/cannot-do}}
 ```
 
 Declaratively Protecting a Route

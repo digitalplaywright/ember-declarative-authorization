@@ -1,4 +1,4 @@
-ic-modal
+Ember Declarative Authorization
 ========
 
 [![Build Status](https://travis-ci.org/instructure/ic-modal.png?branch=master)](https://travis-ci.org/instructure/ic-modal)

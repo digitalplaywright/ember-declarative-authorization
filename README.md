@@ -48,15 +48,19 @@ Usage (e.g how does it work?)
 **To enable Ember.DeclartiveAuth in an Application, simply add a custom initializer:**
 
 ```javascript
+//user defined rules object. Where it is located doesn't matter, but
+//it must be registered on 'rules:main' like shown below.
+import RulesMain from 'appkit/rules/main;
 
 Ember.Application.initializer({
   name: 'authorization',
   initialize: function (container, application) {
+    
     container.register('rules:main', RulesMain);
 
     Ember.DeclarativeAuthorization.setup(container,application);
 
-   }
+  }
 });
 
 ```
@@ -76,9 +80,8 @@ export default Ember.Object.extend({
 	    object: "post"
 		can: function(actor, object, target){
 		    //do an arbitrary check here
-			return true;
+              	    return true;
 		}
-
 	}
 });
 ```
@@ -96,10 +99,9 @@ activity-verb: {
 	target:  object-type-3,
 
 	can: function(actor, object, target){
-       //arbitrary javascript function that 
-       //returns true/false
-       return true;
-   
+          //arbitrary javascript function that 
+          //returns true/false
+          return true;
     }
 }
 ```
@@ -132,7 +134,7 @@ activity-verb: [
 		can: function(actor, object, target){
 	       //arbitrary javascript function that 
 	       //returns true/false
-           return true;
+               return true;
 	   
 	    }
 	},
@@ -141,9 +143,7 @@ activity-verb: [
 		can: function(actor, object, target){
 	       //arbitrary javascript function that 
 	       //returns true/false
-           return false;
-
-	   
+               return false;
 	    }
 	}
 

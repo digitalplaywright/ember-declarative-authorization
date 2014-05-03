@@ -175,7 +175,7 @@ Declaratively Protecting a Route
 You can declaratively protect a controller route by extending the 'AuthorizeRouteMixin' mixin, e.g:
 
 ```handlebars
-var PostsRoute = Ember.Route.extend(AuthorizeRouteMixin, {
+var PostsRoute = Ember.Route.extend(Ember.DeclarativeAuthorization.AuthorizeRouteMixin, {
   model: function() {
     return this.store.find('post');
   }
@@ -185,7 +185,25 @@ export default PostsRoute;
 ```
 
 The activity verb of the controller is then inferred to be the route name, like e.g 'posts.index', and 
-the model on the controller is assumed to be the object.
+the model on the controller is assumed to be the object. For example, for the controlelr above
+the route above the following rule must be defined:
+
+```javascript
+
+"posts.index": {
+	actor:   "user",
+	object:  "post",
+
+	can: function(actor, object, target){
+          //arbitrary javascript function that 
+          //returns true/false
+          return true;
+    }
+}
+```
+
+
+
 
 
 Contributing

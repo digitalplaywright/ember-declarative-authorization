@@ -52,7 +52,7 @@ define("ember-declarative-authorization/authorize-route-mixin",
       @static
     */
     __exports__["default"] = Ember.Component.extend({
-        isEqual: function() {
+        canDo: function() {
       	  var rules = this.container.lookup('declarative-authorization:eval');
 
       	  var activity = this.get('activity');
@@ -98,7 +98,7 @@ define("ember-declarative-authorization/authorize-route-mixin",
       @static
     */
     __exports__["default"] = Ember.Component.extend({
-        isEqual: function() {
+        cannotDo: function() {
       	  var rules = this.container.lookup('declarative-authorization:eval');
 
       	  var activity = this.get('activity');
@@ -461,7 +461,7 @@ define("ember-declarative-authorization/authorize-route-mixin",
       return buffer;
       }
 
-      stack1 = helpers['if'].call(depth0, "isEqual", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],data:data});
+      stack1 = helpers['if'].call(depth0, "canDo", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],data:data});
       if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
       else { data.buffer.push(''); }
       
@@ -486,7 +486,7 @@ define("ember-declarative-authorization/authorize-route-mixin",
       return buffer;
       }
 
-      stack1 = helpers.unless.call(depth0, "isEqual", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],data:data});
+      stack1 = helpers['if'].call(depth0, "cannotDo", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],data:data});
       if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
       else { data.buffer.push(''); }
       

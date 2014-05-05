@@ -24,7 +24,7 @@ define(
       @static
     */
     __exports__["default"] = Ember.Component.extend({
-        isEqual: function() {
+        canDo: function() {
       	  var rules = this.container.lookup('declarative-authorization:eval');
 
       	  var activity = this.get('activity');

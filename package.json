@@ -1,6 +1,6 @@
 {
   "name": "ember-declarative-authorization",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "declarative authorization ember component",
   "main": "dist/cjs/main",
   "tags": [

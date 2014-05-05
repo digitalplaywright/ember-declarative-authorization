@@ -1,9 +1,9 @@
-ic-modal
+Ember Declarative Authorization
 ========
 
 [![Build Status](https://travis-ci.org/instructure/ic-modal.png?branch=master)](https://travis-ci.org/instructure/ic-modal)
 
-[WAI-ARIA][wai-aria] declarative authorization component for [Ember.js][ember].
+declarative authorization component for [Ember.js][ember].
 
 Installation
 ------------
@@ -48,15 +48,19 @@ Usage (e.g how does it work?)
 **To enable Ember.DeclartiveAuth in an Application, simply add a custom initializer:**
 
 ```javascript
+//user defined rules object. Where it is located doesn't matter, but
+//it must be registered on 'rules:main' like shown below.
+import RulesMain from 'appkit/rules/main;
 
 Ember.Application.initializer({
   name: 'authorization',
   initialize: function (container, application) {
+    
     container.register('rules:main', RulesMain);
 
     Ember.DeclarativeAuthorization.setup(container,application);
 
-   }
+  }
 });
 
 ```
@@ -76,9 +80,8 @@ export default Ember.Object.extend({
 	    object: "post"
 		can: function(actor, object, target){
 		    //do an arbitrary check here
-			return true;
+              	    return true;
 		}
-
 	}
 });
 ```
@@ -96,10 +99,9 @@ activity-verb: {
 	target:  object-type-3,
 
 	can: function(actor, object, target){
-       //arbitrary javascript function that 
-       //returns true/false
-       return true;
-   
+          //arbitrary javascript function that 
+          //returns true/false
+          return true;
     }
 }
 ```
@@ -115,7 +117,7 @@ The object may be the entity performing the activity, or the entity on which the
 The target is the object that the verb is enacted on. e.g. Geraldine(actor) posted a photo(object) to her album(target).
 
 
-One Rule Activity Verbs with Multiple Associated Rules
+Rule Activity Verbs with Multiple Associated Rules
 ------------
 
 An activity verb can be used for multiple rules by putting all rules for that verb into
@@ -132,7 +134,7 @@ activity-verb: [
 		can: function(actor, object, target){
 	       //arbitrary javascript function that 
 	       //returns true/false
-           return true;
+               return true;
 	   
 	    }
 	},
@@ -141,9 +143,7 @@ activity-verb: [
 		can: function(actor, object, target){
 	       //arbitrary javascript function that 
 	       //returns true/false
-           return false;
-
-	   
+               return false;
 	    }
 	}
 
@@ -166,7 +166,7 @@ To selectively hide content in a template invoke the #cannot-do component, e.g:
 ```handlebars
 {{#cannot-do activity="edit" actor=user object=post }}
 MARK
-{{/can-do}}
+{{/cannot-do}}
 ```
 
 Declaratively Protecting a Route
@@ -175,7 +175,7 @@ Declaratively Protecting a Route
 You can declaratively protect a controller route by extending the 'AuthorizeRouteMixin' mixin, e.g:
 
 ```handlebars
-var PostsRoute = Ember.Route.extend(AuthorizeRouteMixin, {
+var PostsRoute = Ember.Route.extend(Ember.DeclarativeAuthorization.AuthorizeRouteMixin, {
   model: function() {
     return this.store.find('post');
   }
@@ -185,7 +185,25 @@ export default PostsRoute;
 ```
 
 The activity verb of the controller is then inferred to be the route name, like e.g 'posts.index', and 
-the model on the controller is assumed to be the object.
+the model on the controller is assumed to be the object. For example, for the controlelr above
+the route above the following rule must be defined:
+
+```javascript
+
+"posts.index": {
+	actor:   "user",
+	object:  "post",
+
+	can: function(actor, object, target){
+          //arbitrary javascript function that 
+          //returns true/false
+          return true;
+    }
+}
+```
+
+
+
 
 
 Contributing

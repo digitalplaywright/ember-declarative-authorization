@@ -50,7 +50,7 @@ Usage (e.g how does it work?)
 ```javascript
 //user defined rules object. Where it is located doesn't matter, but
 //it must be registered on 'rules:main' like shown below.
-import RulesMain from 'appkit/rules/main;
+import RulesMain from 'appkit/rules/main';
 
 Ember.Application.initializer({
   name: 'authorization',

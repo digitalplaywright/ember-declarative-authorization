@@ -1,7 +1,7 @@
 Ember Declarative Authorization
 ========
 
-[![Build Status](https://travis-ci.org/instructure/ic-modal.png?branch=master)](https://travis-ci.org/instructure/ic-modal)
+[![Build Status](https://travis-ci.org/digitalplaywright/ember-declarative-authorization.svg)](https://travis-ci.org/digitalplaywright/ember-declarative-authorization)
 
 declarative authorization component for [Ember.js][ember].
 

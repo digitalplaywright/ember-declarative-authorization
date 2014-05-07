@@ -24,13 +24,13 @@ Then include the script(s) into your application:
 
 ### npm+browserify
 
-`require('ic-modal')`
+`require('ember-declarative-authorization')`
 
 ### amd
 
-Register `ic-modal` as a [package][rjspackage], then:
+Register `ember-declarative-authorization` as a [package][rjspackage], then:
 
-`define(['ic-modal'], ...)`
+`define(['ember-declarative-authorization'], ...)`
 
 ### named-amd
 
@@ -50,7 +50,7 @@ Usage (e.g how does it work?)
 ```javascript
 //user defined rules object. Where it is located doesn't matter, but
 //it must be registered on 'rules:main' like shown below.
-import RulesMain from 'appkit/rules/main;
+import RulesMain from 'appkit/rules/main';
 
 Ember.Application.initializer({
   name: 'authorization',
@@ -185,8 +185,7 @@ export default PostsRoute;
 ```
 
 The activity verb of the controller is then inferred to be the route name, like e.g 'posts.index', and 
-the model on the controller is assumed to be the object. For example, for the controlelr above
-the route above the following rule must be defined:
+the model on the controller is assumed to be the object. For example, for the route above the following rule must be defined:
 
 ```javascript
 

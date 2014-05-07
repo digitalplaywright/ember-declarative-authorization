@@ -185,8 +185,7 @@ export default PostsRoute;
 ```
 
 The activity verb of the controller is then inferred to be the route name, like e.g 'posts.index', and 
-the model on the controller is assumed to be the object. For example, for the controlelr above
-the route above the following rule must be defined:
+the model on the controller is assumed to be the object. For example, for the route above the following rule must be defined:
 
 ```javascript
 

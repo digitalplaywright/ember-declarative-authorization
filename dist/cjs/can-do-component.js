@@ -30,7 +30,6 @@ exports["default"] = Ember.Component.extend({
   	  var target   = this.get('target');
 
   	  var args = {};
-  	  console.log(target);
 
   	  if(activity != null) { args['activity'] = activity; }; 
   	  if(actor    != null) { args['actor']    = actor;    }; 

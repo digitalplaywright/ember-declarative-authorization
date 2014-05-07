@@ -1,7 +1,7 @@
 Ember Declarative Authorization
 ========
 
-[![Build Status](https://travis-ci.org/instructure/ic-modal.png?branch=master)](https://travis-ci.org/instructure/ic-modal)
+[![Build Status](https://travis-ci.org/digitalplaywright/ember-declarative-authorization.svg)](https://travis-ci.org/digitalplaywright/ember-declarative-authorization)
 
 declarative authorization component for [Ember.js][ember].
 
@@ -176,6 +176,10 @@ You can declaratively protect a controller route by extending the 'AuthorizeRout
 
 ```handlebars
 var PostsRoute = Ember.Route.extend(Ember.DeclarativeAuthorization.AuthorizeRouteMixin, {
+  //Optional definition of actor
+  actor: function(){
+  	return this.store.find('user','1');
+  },
   model: function() {
     return this.store.find('post');
   }
@@ -183,6 +187,9 @@ var PostsRoute = Ember.Route.extend(Ember.DeclarativeAuthorization.AuthorizeRout
 
 export default PostsRoute;
 ```
+
+The definition of the actor method on the route is optional, but if it does then it is expected to
+return a promise the resolves to the current actor. 
 
 The activity verb of the controller is then inferred to be the route name, like e.g 'posts.index', and 
 the model on the controller is assumed to be the object. For example, for the route above the following rule must be defined:

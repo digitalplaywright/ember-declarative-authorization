@@ -24,13 +24,13 @@ Then include the script(s) into your application:
 
 ### npm+browserify
 
-`require('ic-modal')`
+`require('ember-declarative-authorization')`
 
 ### amd
 
-Register `ic-modal` as a [package][rjspackage], then:
+Register `ember-declarative-authorization` as a [package][rjspackage], then:
 
-`define(['ic-modal'], ...)`
+`define(['ember-declarative-authorization'], ...)`
 
 ### named-amd
 
